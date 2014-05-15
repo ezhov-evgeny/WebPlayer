@@ -1,0 +1,513 @@
+.player_flash{width:610px;height:89px;/**/clear:both;}
+
+/******************************************************/
+#player_container {
+	position: relative;
+	background:url("/player/images/player-flash-bg.png") no-repeat;
+	width:590px;
+	height:89px;
+}
+#player_container  ul#player_controls {
+	list-style-type:none;
+	padding:0;
+	margin: 0;
+}
+#player_container  ul#player_controls li {
+	overflow:hidden;
+	text-indent:-9999px;
+}
+#player_play, #player_pause {
+    cursor: pointer;
+    display: block;
+    height: 24px;
+    left: 283px;
+    position: absolute;
+    top: 65px;
+    width: 25px;
+}
+#player_play {
+	background: url("/player/images/play-button.png") left top no-repeat;
+}
+#player_play:hover {
+	background: url("/player/images/play-button.png") left bottom no-repeat;
+}
+#player_pause {
+	background: url("/player/images/pause-button.png") left top no-repeat;
+}
+#player_pause:hover {
+	background: url("/player/images/pause-button.png") left bottom no-repeat;
+}
+#player_stop {
+    background: url("/player/images/stop-button.png") no-repeat scroll left top transparent;
+    cursor: pointer;
+    height: 17px;
+    left: 241px;
+    position: absolute;
+    top: 68px;
+    width: 17px;
+}
+#player_stop:hover {
+	background: url("/player/images/stop-button.png") left bottom no-repeat;
+}
+#player_prev {
+    background: url("/player/images/prev-button.png") no-repeat scroll left top transparent;
+    cursor: pointer;
+    height: 15px;
+    left: 258px;
+    position: absolute;
+    top: 69px;
+    width: 27px;
+}
+#player_prev:hover {
+	background: url("/player/images/prev-button.png") no-repeat scroll left bottom transparent;
+}
+#player_next {
+    background: url("/player/images/next-button.png") no-repeat scroll left top transparent;
+    cursor: pointer;
+    height: 15px;
+    left: 305px;
+    position: absolute;
+    top: 69px;
+    width: 27px;
+}
+#player_next:hover {
+	background: url("/player/images/next-button.png") no-repeat scroll left bottom transparent;
+}
+#player_progress {
+    height: 3px;
+    left: 9px;
+    position: absolute;
+    top: 57px;
+    width: 573px;
+}
+#player_progress_load_bar {
+    background:#111;
+    cursor: pointer;
+    height: 100%;
+    width: 0%;
+}
+#player_progress_load_bar.different_prefix_example_buffer {
+	background: url("/player/images/bar_buffer.gif")  top left repeat-x;
+}
+#player_progress_play_bar {
+	background: url("/player/images/bar_play.gif") repeat-x scroll left top;
+    height: 100%;
+    width: 0;
+}
+#player_volume_min, #player_volume_max {
+    cursor: pointer;
+    height: 17px;
+    left: 333px;
+    position: absolute;
+    top: 68px;
+    width: 17px;
+}
+#player_volume_min {
+    background: url("/player/images/mute-button.png") no-repeat scroll left top transparent;
+}
+#player_volume_max {
+	display:none;
+    background: url("/player/images/mute2-button.png") no-repeat scroll left top transparent;
+}
+#player_volume_min:hover {
+	background: url("/player/images/mute-button.png") left bottom no-repeat;
+}
+#player_volume_max:hover {
+	background: url("/player/images/mute2-button.png") left bottom no-repeat;
+}
+#player_volume_bar {
+    cursor: pointer;
+    height: 3px;
+    left: 355px;
+    position: absolute;
+    top: 74px;
+    width: 49px;
+}
+#player_volume_bar .ui-slider-range {
+	background: url("/player/images/volume-bar.gif") repeat-x top left;
+	position: absolute;
+    top: 0;
+	width:0px;
+	height:3px;
+}
+#player_volume_bar a {
+    background: url("/player/images/volume-button.png") no-repeat 0 0;
+    display: block;
+    height: 12px;
+    position: relative;
+    top: -5px;
+    width: 12px;
+}
+
+#player_playlist_message {
+	position: absolute;
+	left:0;
+	bottom:0;
+	width:338px;
+	padding:5px 40px 10px 40px;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height:1.4em;
+	height:1em;
+	background-color:#ccc;
+}
+#song_title {
+	float:left;
+	margin:0 5px 0 0;
+	padding:0;
+	font-weight:bold;
+}
+#track_info {
+    color: #EEEEEE;
+    cursor: default;
+    font-family: tahoma;
+    font-size: 13px;
+    font-weight: normal;
+    left: 7px;
+    padding-top: 0;
+    position: absolute;
+    top: 4px;
+}
+#play_time, #total_time {
+    color: #EEEEEE;
+	cursor: default;
+    font-family: tahoma;
+    font-size: 12px;
+    font-weight: normal;
+    padding-top: 0;
+    position: absolute;
+    top: 68px;
+}
+#play_time {
+   /* left: 504px;*/
+	left: 550px;
+}
+#total_time {
+    left: 550px;
+}
+.miaow {
+	font-size:.8em;
+	color:#999;
+}
+.miaow a:link, a:visited, a:hover, a:focus, a:active {
+	color:#009be3;
+}
+#player_buy_now {
+    left: 494px;
+    position: absolute;
+    top: 24px;
+}
+#player_buy_now a {
+    background: url("/player/images/buy-button.png") no-repeat scroll left top transparent;
+    display: block;
+    height: 28px;
+    width: 94px;
+}
+#player_buy_now a:hover {
+    background: url("/player/images/buy-button.png") no-repeat scroll left bottom transparent;
+}
+#rate1 {
+    background: url("/player/images/star.png") no-repeat scroll left top transparent;
+	cursor: pointer;
+    height: 13px;
+    left: 10px;
+    position: absolute;
+    top: 33px;
+    width: 65px;
+}
+#rate1:hover {
+	background: url("/player/images/star.png") no-repeat scroll left bottom transparent;
+}
+#rate2 {
+    background: url("/player/images/star.png") no-repeat scroll left top transparent;
+	cursor: pointer;
+    height: 13px;
+    left: 13px;
+    position: absolute;
+    top: 0;
+    width: 52px;
+}
+#rate2:hover {
+	background: url("/player/images/star.png") no-repeat scroll left bottom transparent;
+}
+#rate3 {
+    background: url("/player/images/star.png") no-repeat scroll left top transparent;
+	cursor: pointer;
+    height: 13px;
+    left: 13px;
+    position: absolute;
+    top: 0;
+    width: 39px;
+}
+#rate3:hover {
+	background: url("/player/images/star.png") no-repeat scroll left bottom transparent;
+}
+#rate4 {
+    background: url("/player/images/star.png") no-repeat scroll left top transparent;
+	cursor: pointer;
+    height: 13px;
+    left: 13px;
+    position: absolute;
+    top: 0;
+    width: 26px;
+}
+#rate4:hover {
+	background: url("/player/images/star.png") no-repeat scroll left bottom transparent;
+}
+#rate5 {
+    background: url("/player/images/star.png") no-repeat scroll left top transparent;
+	cursor: pointer;
+    height: 13px;
+    left: 13px;
+    position: absolute;
+    top: 0;
+    width: 13px;
+}
+#rate5:hover {
+	background: url("/player/images/star.png") no-repeat scroll left bottom transparent;
+}
+#rateText {
+    color: #EEEEEE;
+    cursor: default;
+    display: none;
+    font-family: tahoma;
+    font-size: 13px;
+    font-weight: normal;
+    left: 71px;
+    padding-top: 0;
+    position: absolute;
+    top: -2px;
+    width: 157px;
+}
+#rate1:hover #rateText {
+	display:block;
+}
+#shopping_cart {
+    background: url("/player/images/shopping-cart.png") no-repeat scroll right top transparent;
+    color: #EEEEEE;
+    font-family: tahoma;
+    font-size: 11.5px;
+    height: 13px;
+    padding: 0 27px 0 0;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+}
+#track_count {
+
+}
+#track_price {
+
+}
+/******************************************************/
+a.player_tab:link, a.player_tab:visited {
+    background: url("/player/images/player-tab.png") no-repeat scroll 0 0 transparent;
+    color: #000;
+    float: left;
+	font-family: tahoma,verdana,arial,sans-serif;
+    font-size: 12px;
+    height: 20px;
+    padding-top: 1px;
+    text-align: center;
+    text-decoration: none;
+    width: 157px;
+}
+a.player_tab:hover {
+    background-position: right -21px;
+
+}
+a.player_tab:active {
+    background-position: right -42px;
+}
+a.player_tab.current {
+    background-position: right -63px;
+}
+a.player_tab.current:hover {
+    background-position: right -84px;
+}
+a.player_tab.current:active {
+    background-position: right -106px;
+}
+.playlist_container {
+    background: url("/player/images/player-playlist-bg.png") no-repeat scroll 0 0 #EEF3FA;
+	display:none;
+    height: 528px;
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 574px;
+}
+.playlist_container.current {
+	display:block;
+}
+.playlist_container  * {
+	border-spacing: 0;
+}
+.playlist_container td {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.playlist_header {
+    color: #77797D;
+	font-family: tahoma,verdana,arial,sans-serif;
+    font-size: 10px;
+    text-align: center;
+    cursor: pointer;
+    height: 18px;
+    width: 574px;
+}
+.playlist_header td {
+    border-color: transparent transparent #D8DCE2 #D8DCE2;
+    border-style: solid;
+    border-width: 1px;
+	line-height: 13px;
+    text-align: center;
+    padding: 1px 1px 2px 1px;
+}
+#thead1 {
+	border-spacing: 0;
+	width: 574px;
+}
+#thead1 * {
+	border-spacing: 0;
+}
+
+.playlist_header .asc, .playlist_header .desc {
+    background: url("/player/images/player-header-current.png") repeat-x scroll 0 0 #D0E7F5;
+    border-color: transparent #A5D8F1 #A5D8F1;
+    color: #000000;
+}
+.playlist_container span {
+    display: inline-block;
+    white-space: nowrap;
+}
+.playlist_header .desc .arrow {
+    background-position: 0 -10px;
+}
+.playlist_header .asc .arrow {
+    background-position: 0 -5px;
+}
+.playlist_header .arrow {
+    background: url("/player/images/player-header-arrow.gif") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 5px;
+    margin-bottom: 1px;
+    width: 7px;
+}
+.playlist_body {
+    border-collapse: collapse;
+    color: #000000;
+    cursor: pointer;
+	font-family: tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 574px;
+}
+.playlist_container table {
+    table-layout: fixed;
+    width: 100%;
+}
+.playlist_body td {
+    background: none repeat scroll 0 0 transparent;
+    height: 17px;
+    padding: 0 6px 0 7px;
+}
+.playlist_body tr.current .p1_col_1 {
+    background-position: 1px 0;
+}
+.playlist_body tr.current .p2_col_1 {
+    background-position: 1px 0;
+}
+.playlist_body tr.current .p3_col_1 {
+    background-position: 1px 0;
+}
+.playlist_body tr.current .first {
+    border-left: 1px dotted #000000;
+    padding-left: 6px;
+}
+.playlist_body tr.current .last {
+	border-left: 1px dotted #000000;
+    padding-left: 6px;
+}
+.playlist_body tr.current td {
+    background: url("/player/images/player-current-bg.gif") repeat-x scroll 0 0 transparent;
+}
+.playlist_body tr:hover{background-color:#d7dbe1;}
+
+
+.playlist_header .p1_col_1{width:100px;}
+.playlist_header .p1_col_2{width:57px;}
+.playlist_header .p1_col_3{width:90px;}
+.playlist_header .p1_col_4{width:70px;}
+.playlist_header .p1_col_5{width:75px;}
+.playlist_header .p1_col_6{width:87px;}
+.playlist_body .p1_col_1{width: 103px;}
+.playlist_body .p1_col_2{padding: 0 6px 0 2px;width: 62px;}
+.playlist_body .p1_col_3{width:92px}
+.playlist_body .p1_col_4{width:78px;}
+.playlist_body .p1_col_5{width:75px;}
+.playlist_body .p1_col_6{width:90px;}
+.playlist_body .p1_col_6 span{padding: 0 4px 0 0;text-align: right;width: 56px;}
+
+.playlist_header .p2_col_1{width:100px;}
+.playlist_header .p2_col_2{width:57px;}
+.playlist_header .p2_col_3{width:90px;}
+.playlist_header .p2_col_4{width:75px;}
+.playlist_header .p2_col_5{width:73px;}
+.playlist_header .p2_col_6{width:87px;}
+.playlist_body .p2_col_1{width: 103px;}
+.playlist_body .p2_col_2{padding: 0 6px 0 2px;width: 62px;}
+.playlist_body .p2_col_3{width:92px}
+.playlist_body .p2_col_4{width:78px;}
+.playlist_body .p2_col_5{width:75px;}
+.playlist_body .p2_col_6{width:90px;}
+.playlist_body .p2_col_6 span{padding: 0 4px 0 0;text-align: right;width: 56px;}
+
+.playlist_header .p3_col_1{width:100px;}
+.playlist_header .p3_col_2{width:57px;}
+.playlist_header .p3_col_3{width:90px;}
+.playlist_header .p3_col_4{width:75px;}
+.playlist_header .p3_col_5{width:73px;}
+.playlist_header .p3_col_6{width:87px;}
+.playlist_body .p3_col_1{width: 103px;}
+.playlist_body .p3_col_2{padding: 0 6px 0 2px;width: 62px;}
+.playlist_body .p3_col_3{width:92px}
+.playlist_body .p3_col_4{width:78px;}
+.playlist_body .p3_col_5{width:75px;}
+.playlist_body .p3_col_6{width:90px;}
+.playlist_body .p3_col_6 span{padding: 0 4px 0 0;text-align: right;width: 56px;}
+
+.playlist_header .p4_col_1{width:100px;}
+.playlist_header .p4_col_2{width:57px;}
+.playlist_header .p4_col_3{width:90px;}
+.playlist_header .p4_col_4{width:75px;}
+.playlist_header .p4_col_5{width:73px;}
+.playlist_header .p4_col_6{width:87px;}
+.playlist_body .p4_col_1{width: 103px;}
+.playlist_body .p4_col_2{padding: 0 6px 0 2px;width: 62px;}
+.playlist_body .p4_col_3{width:92px}
+.playlist_body .p4_col_4{width:78px;}
+.playlist_body .p4_col_5{width:75px;}
+.playlist_body .p4_col_6{width:90px;}
+.playlist_body .p4_col_6 span{padding: 0 4px 0 0;text-align: right;width: 56px;}
+
+
+.star {
+    vertical-align: -2px;
+}
+.checkbox {
+    background: url("/player/images/player-checkbox.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 13px;
+    vertical-align: -2px;
+    width: 13px;
+}
+.checkbox:hover {
+    background-position: 0 -13px;
+}
+.checkbox.current {
+    background-position: 0 -26px;
+}
+.checkbox.current:hover {
+    background-position: 0 -39px;
+}

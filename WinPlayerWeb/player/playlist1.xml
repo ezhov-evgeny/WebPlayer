@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<playlist>
+    <trackList>
+        <track>
+            <id>track1163</id>
+            <name>TR-3 (arenda/exc)</name>
+            <author>B.X.</author>
+            <price>800</price>
+            <style>Hip-hop</style>
+            <date>22.02.2014</date>
+            <location>mp3/B.X./TR-3.mp3</location>
+        </track>
+        <track>
+            <id>track1162</id>
+            <name>TR-4 (arenda/exc)</name>
+            <author>B.X.</author>
+            <price>800</price>
+            <style>Hip-hop</style>
+            <date>22.02.2014</date>
+            <location>mp3/B.X./TR-4.mp3</location>
+        </track>
+        <track>
+            <id>track1161</id>
+            <name>TR-5 (arenda/exc)</name>
+            <author>B.X.</author>
+            <price>800</price>
+            <style>Hip-hop</style>
+            <date>22.02.2014</date>
+            <location>mp3/B.X./TR-5.mp3</location>
+        </track>
+    </trackList>
+</playlist>

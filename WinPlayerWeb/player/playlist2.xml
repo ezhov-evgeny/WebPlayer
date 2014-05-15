@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<playlist>
+    <trackList>
+		<track>
+			<id>instrumental-62</id>
+            <name>Beat_N_2011_48_1</name>
+			<author>DiMario</author>
+			<price>0</price>
+			<style>Hip-Hop</style>
+			<date>03.02.2012</date>
+            <location>http://top4inpro.ru/mp3/Instrumentals/DiMario_N_2011_48_1.mp3</location>
+        </track>
+		<track>
+			<id>instrumental-61</id>
+            <name>Beat_N_2011_42_1</name>
+			<author>DiMario</author>
+			<price>0</price>
+			<style>Hip-Hop</style>
+			<date>03.02.2012</date>
+            <location>http://top4inpro.ru/mp3/Instrumentals/DiMario_N_2011_42_1.mp3</location>
+        </track>
+		<track>
+			<id>instrumental-60</id>
+            <name>Beat_2011_59_2</name>
+			<author>DiMario</author>
+			<price>0</price>
+			<style>Hip-Hop</style>
+			<date>03.10.2011</date>
+            <location>http://top4inpro.ru/mp3/Instrumentals/DiMario_Beat_2011_59_2_free.mp3</location>
+        </track>
+	</trackList>
+</playlist>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<playlist>
+    <trackList>
+        <track>
+            <id>pesnya073</id>
+            <name>Verni te chuvstva</name>
+            <author>BouH</author>
+            <price>0</price>
+            <style>Hip-Hop</style>
+            <date>12.04.2014</date>
+            <location>http://top4inpro.ru/mp3/top4inpro/BouH__Verni_te_chuvstva.mp3</location>
+        </track>
+        <track>
+            <id>pesnya072</id>
+            <name>mame</name>
+            <author>Mc fest</author>
+            <price>0</price>
+            <style>Hip-Hop</style>
+            <date>20.02.2014</date>
+            <location>http://top4inpro.ru/mp3/top4inpro/mame..mp3</location>
+        </track>
+    </trackList>
+</playlist>
