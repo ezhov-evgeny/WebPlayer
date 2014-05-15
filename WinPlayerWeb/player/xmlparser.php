@@ -46,7 +46,7 @@
 	}
 	
 	function readPlaylist($playlist/*, $ratinglist*/) {
-		// читать xml
+		// С‡РёС‚Р°С‚СЊ xml
 		
 		$data = implode("",file($playlist));
 		$parser = xml_parser_create();
@@ -55,12 +55,12 @@
 		xml_parse_into_struct($parser,$data,$values,$tags);
 		xml_parser_free($parser);
 
-		// цикл по этим структурам
+		// С†РёРєР» РїРѕ СЌС‚РёРј СЃС‚СЂСѓРєС‚СѓСЂР°Рј
 		foreach ($tags as $key=>$val) {
 			if ($key == "track") {
 				$trackranges = $val;
-				// каждая пара вхождений массива это нижняя и верхняя
-				// границы диапазона для определения каждой молекулы
+				// РєР°Р¶РґР°СЏ РїР°СЂР° РІС…РѕР¶РґРµРЅРёР№ РјР°СЃСЃРёРІР° СЌС‚Рѕ РЅРёР¶РЅСЏСЏ Рё РІРµСЂС…РЅСЏСЏ
+				// РіСЂР°РЅРёС†С‹ РґРёР°РїР°Р·РѕРЅР° РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ РєР°Р¶РґРѕР№ РјРѕР»РµРєСѓР»С‹
 				for ($i=0; $i < count($trackranges); $i+=2) {
 					$offset = $trackranges[$i] + 1;
 					$len = $trackranges[$i + 1] - $offset;

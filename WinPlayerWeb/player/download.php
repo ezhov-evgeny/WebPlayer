@@ -1,14 +1,18 @@
 <?php
 if(isset($_REQUEST['id'])){
+	$playlist1 = 'playlist1.xml';
 	$playlist2 = 'playlist2.xml';
 	$playlist3 = 'playlist3.xml';
+
 	
 	// ���������� ������
 	require 'xmlparser.php';
 	
 	// ��������� ���������
+	$arTrackLists[] = readPlaylist($playlist1);
 	$arTrackLists[] = readPlaylist($playlist2);
 	$arTrackLists[] = readPlaylist($playlist3);
+
 	
 	foreach($arTrackLists as $arTrackList)
 		foreach($arTrackList as $arTrack)
@@ -46,3 +50,4 @@ if(isset($_REQUEST['id'])){
 	}
 }
 ?>
+

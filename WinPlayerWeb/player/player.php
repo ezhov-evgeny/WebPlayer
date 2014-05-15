@@ -1,8 +1,8 @@
-<div id="tmpPlayer" style="display: none ! important;">
+<div id="tmpPlayer" style="display: none !important;">
 	<div class="player_tabs">
-		<a onclick="showTab(1);return false;" class="player_tab current" id="player_tab1" href="#">Минуса на продажу</a>
-		<a onclick="showTab(2);return false;" id="player_tab2" href="#" class="player_tab">Минуса бесплатно</a>
-		<a onclick="showTab(3);return false;" id="player_tab3" href="#" class="player_tab">Песни клиентов</a>
+		<a onclick="showTab(1);return false;" class="player_tab current" id="player_tab1" href="#">РњРёРЅСѓСЃР° РЅР° РїСЂРѕРґР°Р¶Сѓ</a>
+        <a onclick="showTab(2);return false;" id="player_tab2" href="#" class="player_tab">РњРёРЅСѓСЃР° Р±РµСЃРїР»Р°С‚РЅРѕ</a>
+        <a onclick="showTab(3);return false;" id="player_tab3" href="#" class="player_tab">РџРµСЃРЅРё РєР»РёРµРЅС‚РѕРІ</a>
 	</div>
 	<div class="player_flash">
 		<div id="jquery_jplayer"></div>
@@ -26,25 +26,18 @@
 
 			<div id="player_volume_bar">
 			</div>
-		<!--	
-			<div id="player_playlist_message">
-				<div id="song_title">Bubble</div>
-				<div id="play_time"></div>
-				<div id="total_time"></div>
-			</div>-->
 			<div id="track_info"></div>
 			<div id="play_time"></div>
-	<!--		<div id="total_time"></div>-->
-			
-			<div id="shopping_cart">
+
+            <div id="shopping_cart">
 				<span id="track_count">
-					Пусто
+					РџСѓСЃС‚Рѕ
 				</span> (
 				<span id="track_price">
-					0 руб
+					0 СЂСѓР±
 				</span>)
-			</div>
-			
+            </div>
+
 			<div id="rate1" onclick="rate(1);">
 				<div id="rate2" onclick="rate(2);">
 					<div id="rate3" onclick="rate(3);">
@@ -54,52 +47,53 @@
 						</div>
 					</div>
 				</div>
-				<div id="rateText">Проголасйте за этот трек</div>
+				<div id="rateText">РџСЂРѕРіРѕР»РѕСЃСѓР№С‚Рµ Р·Р° СЌС‚РѕС‚ С‚СЂРµРє</div>
 			</div>
-				
-			<div id="player_buy_now">
-<!-- 				<a href="http://top4inpro.ru/component/option,com_contact/Itemid,222/" onclick="urlGen();" title="Купить"></a> -->
- 				<a href="http://top4inpro.ru/component/option,com_rsform/Itemid,263/" onclick="return urlGen();" title="Купить"></a> 
-			</div>
+
+            <div id="player_buy_now">
+                <a href="http://vipbeat.ru/contact.html" onclick="return urlGen();" title="РљСѓРїРёС‚СЊ"></a>
+            </div>
 		</div>
 	</div>
 	<?php
-		// Файлы плейлистов
+		// Р¤Р°Р№Р»С‹ РїР»РµР№Р»РёСЃС‚РѕРІ
 		$playlist1 = 'player/playlist1.xml';
 		$playlist2 = 'player/playlist2.xml';
 		$playlist3 = 'player/playlist3.xml';
-		// Файлы рейтингов
+
+		// Р¤Р°Р№Р»С‹ СЂРµР№С‚РёРЅРіРѕРІ
 		$ratinglist1 = 'player/rating1.json';
 		$ratinglist2 = 'player/rating2.json';
 		$ratinglist3 = 'player/rating3.json';
-		
-		// Подключаем парсер
-		require /* 'player/' */ 'xmlparser.php';
-		
-		// Загружаем рейтинги
+
+
+		// РџРѕРґРєР»СЋС‡Р°РµРј РїР°СЂСЃРµСЂ
+		require 'xmlparser.php';
+
+		// Р—Р°РіСЂСѓР¶Р°РµРј СЂРµР№С‚РёРЅРіРё
 		$rating[] = jsonRead($ratinglist1);
 		$rating[] = jsonRead($ratinglist2);
 		$rating[] = jsonRead($ratinglist3);
-		// Загружаем плейлисты
+		// Р—Р°РіСЂСѓР¶Р°РµРј РїР»РµР№Р»РёСЃС‚С‹
 		$arTrackLists[] = readPlaylist($playlist1);
 		$arTrackLists[] = readPlaylist($playlist2);
 		$arTrackLists[] = readPlaylist($playlist3);
 		
-		// Берём первую компазицию из первого плейлиста для предварительной загрузки
+		// Р‘РµСЂС‘Рј РїРµСЂРІСѓСЋ РєРѕРјРїР°Р·РёС†РёСЋ РёР· РїРµСЂРІРѕРіРѕ РїР»РµР№Р»РёСЃС‚Р° РґР»СЏ РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕР№ Р·Р°РіСЂСѓР·РєРё
 		$num = $arTrackLists[0][0]['id'];
 	?>
 			<script type="text/javascript">
-	// Делаем плеер
+	// Р”РµР»Р°РµРј РїР»РµРµСЂ
+				$ = jQuery.noConflict();
 				$(document).ready(function(){
 
 					$("#jquery_jplayer").jPlayer({
 						ready: function () {
 							this.element.jPlayer('setFile', '<?php echo $arTrackLists[0][0]["location"]?>');
 							$('#track_info').text('<?php echo $arTrackLists[0][0]["author"]?> - <?php echo $arTrackLists[0][0]["name"]?>');
-							//this.play();
 						},
 						cssPrefix: 'different_prefix_example',
-						preload: 'auto',
+						preload: 'none',
 						swfPath: '/js'
 					})
 					.jPlayer('cssId', 'play', 'player_play')
@@ -109,7 +103,6 @@
 					.jPlayer('cssId', 'loadBar', 'player_progress_load_bar')
 					.jPlayer('cssId', 'playBar', 'player_progress_play_bar')
 					.jPlayer('onSoundComplete', function() {
-						//this.element.jPlayer("play"); // Auto-Repeat
 						$('tr.current').next('tr').click();
 					})
 					.jPlayer('onProgressChange', function(lp,ppr,ppa,pt,tt) {
@@ -128,7 +121,7 @@
 							}
 					});
 					
-					// Берем первую компазицию
+					// Р‘РµСЂРµРј РїРµСЂРІСѓСЋ РєРѕРјРїР°Р·РёС†РёСЋ
 					eventTR = document.getElementById('<?php echo 'tab1_'.$num?>');
 					
 					chkbx = false;
@@ -152,12 +145,13 @@
 		<div>
 			<table id="thead<?php echo $tabNum; ?>" style="widtd:590px;">
 				<tr  class="playlist_header">
-					<td class="p<?php echo $tabNum; ?>_col_1" onclick="sortPlaylist(this,<?php echo $tabNum; ?>,1);"><span>Название <div class="arrow"></div></span></td>
-					<td class="p<?php echo $tabNum; ?>_col_2" onclick="sortPlaylist(this,<?php echo $tabNum; ?>,2,1,1);"><span>Рейтинг <div class="arrow"></div></span></td>
-					<td class="p<?php echo $tabNum; ?>_col_3" onclick="sortPlaylist(this,<?php echo $tabNum; ?>,3);"><span>Автор <div class="arrow"></div></span></td>
-					<td class="p<?php echo $tabNum; ?>_col_4" onclick="sortPlaylist(this,<?php echo $tabNum; ?>,4);"><span>Стиль <div class="arrow"></div></span></td>
-					<td class="p<?php echo $tabNum; ?>_col_5" onclick="sortPlaylist(this,<?php echo $tabNum; ?>,5);"><span>Дата добав. <div class="arrow"></div></span></td>
-					<td class="p<?php echo $tabNum; ?>_col_6" onclick="sortPlaylist(this,<?php echo $tabNum; ?>,6,1);"><span>Цена <div class="arrow"></div></span></td>
+					<td class="p<?php echo $tabNum; ?>_col_1" onclick="sortPlaylist(this,<?php echo $tabNum; ?>,1);"><span>РќР°Р·РІР°РЅРёРµ <div class="arrow"></div></span></td>
+					<td class="p<?php echo $tabNum; ?>_col_2" onclick="sortPlaylist(this,<?php echo $tabNum; ?>,2,1,1);"><span>Р РµР№С‚РёРЅРі <div class="arrow"></div></span></td>
+					<td class="p<?php echo $tabNum; ?>_col_3" onclick="sortPlaylist(this,<?php echo $tabNum; ?>,3);"><span>РђРІС‚РѕСЂ <div class="arrow"></div></span></td>
+					<td class="p<?php echo $tabNum; ?>_col_4" onclick="sortPlaylist(this,<?php echo $tabNum; ?>,4);"><span>РЎС‚РёР»СЊ <div class="arrow"></div></span></td>
+					<td class="p<?php echo $tabNum; ?>_col_5" onclick="sortPlaylist(this,<?php echo $tabNum; ?>,5);"><span>Р”Р°С‚Р° РґРѕР±Р°РІ. <div class="arrow"></div></span></td>
+					<td class="p<?php echo $tabNum; ?>_col_6" onclick="sortPlaylist(this,<?php echo $tabNum; ?>,6,1);"><span>Р¦РµРЅР° <div class="arrow"></div></span></td>
+                    
 				</tr>
 			</table>
 		</div>
@@ -186,10 +180,11 @@
 			echo '	<td class="p'.$tabNum.'_col_3" align="center"><span>'.$elTrack['author'].'</span></td>';
 			echo '	<td class="p'.$tabNum.'_col_4" align="center"><span>'.$elTrack['style'].'</span></td>';
 			echo '	<td class="p'.$tabNum.'_col_5" align="center"><span>'.$elTrack['date'].'</span></td>';
-			if($tabNum == 1)
-				echo '	<td class="p'.$tabNum.'_col_6" customkey="'.$elTrack['price'].'"><span>'.$elTrack['price'].' руб</span><div id="tab'.$tabNum.'_buy_'.$elTrack['id'].'" class="checkbox" customkey="'.$elTrack['price'].'" onclick="addToCart(\''.$elTrack['id'].'\', \''.$elTrack['price'].'\');"></div></td>';
-			else
-				echo '	<td class="p'.$tabNum.'_col_6"><span><a href="/player/download.php?id='.$elTrack["id"].'" title="скачать бесплатно" target="_blank" onclick="chkbx = true;">скачать</a></span></div></td>';
+            if($tabNum == 1)
+                echo '	<td class="p'.$tabNum.'_col_6" customkey="'.$elTrack['price'].'"><span>'.$elTrack['price'].' СЂСѓР±</span><div id="tab'.$tabNum.'_buy_'.$elTrack['id'].'" class="checkbox" customkey="'.$elTrack['price'].'" onclick="addToCart(\''.$elTrack['id'].'\', \''.$elTrack['price'].'\');"></div></td>';
+            else
+                echo '	<td class="p'.$tabNum.'_col_6"> </td>';
+			echo '	<td class="p'.$tabNum.'_col_7"><span><a href="/player/download.php?id='.$elTrack["id"].'" title="СЃРєР°С‡Р°С‚СЊ" target="_blank" onclick="chkbx = true;">СЃРєР°С‡Р°С‚СЊ</a></span></div></td>';
 			echo '</tr>';			
 		}
 	?>
