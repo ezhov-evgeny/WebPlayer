@@ -47,7 +47,6 @@
 	
 	function readPlaylist($playlist/*, $ratinglist*/) {
 		// читать xml
-		
 		$data = implode("",file($playlist));
 		$parser = xml_parser_create();
 		xml_parser_set_option($parser,XML_OPTION_CASE_FOLDING,0);
@@ -72,4 +71,3 @@
 		}
 		return $tdb;
 	}
-?>

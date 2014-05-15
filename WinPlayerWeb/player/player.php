@@ -117,7 +117,7 @@
 
 							slide: function(event, ui) {
 									$("#jquery_jplayer").jPlayer('volume', ui.value);
-									$('#player_volume_bar > div.ui-slider-range').css('width', ui.value + '%');
+									$('#player_volume_bar').find('> div.ui-slider-range').css('width', ui.value + '%');
 							}
 					});
 					

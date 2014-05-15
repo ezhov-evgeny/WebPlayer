@@ -13,4 +13,3 @@ if(isset($_REQUEST['id'])){
 	if(addRating($filename, $_REQUEST['id'], $_REQUEST['rating']))
 		echo 'ok';
 }
-?>
