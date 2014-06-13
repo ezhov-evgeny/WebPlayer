@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-<meta charset="UTF-8">
-<script src="js/player.js" type="application/javascript"></script>
-<link href="player.css" type="text/css"/>
-<title>iTunes Web</title>
-<style>
 @font-face {
     font-family: LucidaGrande;
     src: url('Lucida_Grande.ttf');
@@ -37,7 +29,7 @@ time, mark, audio, video {
     font-family: LucidaGrande, sans-serif;
 }
 
-    /* HTML5 display-role reset for older browsers */
+/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
@@ -100,7 +92,7 @@ thead td {
 }
 
 #control_panel {
-    background: url('images/control-bg.png');
+    background: url(images/control-bg.png);
     background: linear-gradient(to top, #95989b, #eeedee);
     border-radius: 4px 4px 0 0;
     height: 62px;
@@ -305,108 +297,3 @@ thead td {
     height: 23px;
     width: 100%;
 }
-</style>
-</head>
-<body>
-<div id="itunes_player">
-    <div id="control_panel">
-        <img id="prev_button" src="images/prev.png"/>
-        <img id="play_button" src="images/play_button.png"/>
-        <img id="next_button" src="images/next.png"/>
-
-        <div id="volume_bar">
-            <div id="volume_on">
-                <img id="volume_button" src="images/volume-button.png"/>
-            </div>
-        </div>
-
-        <div id="player_info">
-            <div id="current_artist">Eminem</div>
-            <div id="current_title">The Monster (feat Rihanna)</div>
-            <div id="progress_time">1:10</div>
-            <div id="progress_bar">
-                <div id="progress_on">
-                    <img id="progress_button" src="images/progress-button.png"/>
-                </div>
-            </div>
-            <div id="remain_time">-2:40</div>
-        </div>
-
-        <div id="search_field">
-            <input type="search" name="q" placeholder="Поиск">
-        </div>
-
-    </div>
-    <div id="side_panel">
-        <h2>Жанры</h2>
-        <ul>
-            <li class="selected">Все</li>
-            <li>Rap</li>
-            <li>Hip-Hop</li>
-            <li>R'n'B</li>
-        </ul>
-    </div>
-    <div id="tracks">
-        <div id="cover_flow">
-            <img height="250" width="650" src="images/cover-flow.png"/>
-        </div>
-        <table id="track_list">
-            <thead>
-            <tr>
-                <td><input type="checkbox" name="selectAll"/></td>
-                <td>Название</td>
-                <td>Длительность</td>
-                <td>Артист</td>
-                <td>Жанр</td>
-                <td>Рейтинг</td>
-                <td>Цена</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>The Monster (feat. Rihanna)</td>
-                <td>4:38</td>
-                <td>Eminem</td>
-                <td>Hip-Hop</td>
-                <td>5</td>
-                <td>1000 руб</td>
-            </tr>
-            <tr class="odd">
-                <td><input type="checkbox"></td>
-                <td>Rap God</td>
-                <td>5:17</td>
-                <td>Eminem</td>
-                <td>Rap</td>
-                <td>5</td>
-                <td>800 руб</td>
-            </tr>
-            <tr class="selected">
-                <td><input type="checkbox"></td>
-                <td>Rap Game</td>
-                <td>5:02</td>
-                <td>Dr. Dre</td>
-                <td>Rap</td>
-                <td>5</td>
-                <td>900 руб</td>
-            </tr>
-            <tr class="odd">
-                <td><input type="checkbox"></td>
-                <td>Drunk in Love (feat. JAY Z)</td>
-                <td>5:30</td>
-                <td>Beyoncé</td>
-                <td>R'n'B</td>
-                <td>4</td>
-                <td>800 руб</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="clear"></div>
-    <div id="status_bar">
-
-    </div>
-</div>
-
-</body>
-</html>
