@@ -1,12 +1,412 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <script src="js/player.js" type="application/javascript"></script>
-    <link href="style/player.css" type="text/css"/>
-    <title>iTunes Web</title>
+<meta charset="UTF-8">
+<script src="js/player.js" type="application/javascript"></script>
+<link href="style/player.css" type="text/css"/>
+<title>iTunes Web</title>
+<style>
+@font-face {
+    font-family: LucidaGrande;
+    src: url('Lucida_Grande.ttf');
+}
+
+body {
+    /*background: #282828;*/
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, td, th, tr,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: #2b2b2b;
+    font-size: 13px;
+    vertical-align: baseline;
+    font-family: LucidaGrande, sans-serif;
+}
+
+    /* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td {
+    padding: 0 5px;
+}
+
+thead {
+    background: linear-gradient(to top, #ffffff, #e5e5e5);
+    border-bottom: 1px solid #a6a6a6;
+    font-weight: bold;
+}
+
+thead td {
+    /*border-right: 1px solid #a6a6a6;*/
+    background: url(images/table-bdr.png) top right no-repeat;
+    height: 22px;
+    vertical-align: middle;
+}
+
+.clear {
+    clear: both;
+}
+
+.odd {
+    background: #f3f6fa;
+}
+
+#itunes_player {
+    border: 1px solid #a6a6a6;
+    border-radius: 4px;
+    height: 595px;
+    margin: 0 auto;
+    width: 910px;
+}
+
+#control_panel {
+    background: url('images/control-bg.png');
+    background: linear-gradient(to top, #95989b, #eeedee);
+    border-radius: 4px 4px 0 0;
+    height: 62px;
+    border-bottom: 1px solid #5f6164;
+    box-shadow: 0 2px 2px #b0b4b8;
+    position: relative;
+}
+
+#side_panel {
+    background: #dadfe5;
+    border-right: 1px solid #bbbbbb;
+    height: 508px;
+    float: left;
+    width: 259px;
+}
+
+#side_panel h2 {
+    color: #62717f;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 8px 0 5px 8px;
+}
+
+#side_panel li {
+    height: 16px;
+    padding: 3px 30px 0;
+}
+
+#side_panel li.selected {
+    background: linear-gradient(to top, #8398b6, #b0bed6);
+    border-top: 1px solid #a2b0ca;
+    color: #ffffff;
+    vertical-align: middle;
+}
+
+#prev_button {
+    position: absolute;
+    left: 25px;
+    top: 16px;
+}
+
+#play_button {
+    position: absolute;
+    left: 60px;
+    top: 13px
+}
+
+#next_button {
+    position: absolute;
+    left: 101px;
+    top: 16px;
+}
+
+#volume_bar {
+    background: url(images/volume-small.png);
+    height: 14px;
+    left: 155px;
+    position: absolute;
+    top: 25px;
+    width: 102px;
+}
+
+#volume_on {
+    background: url(images/volume-on-bg.png) repeat-x;
+    height: 11px;
+    position: relative;
+    margin: 1px 0 0 19px;
+    width: 30px;
+}
+
+#volume_button {
+    position: absolute;
+    right: -6px;
+    top: -1px;
+
+}
+
+#player_info {
+    background: url(images/player-info-bg.png) repeat-x;
+    border: 1px solid #929985;
+    border-top-color: #6a6f5f;
+    border-bottom-color: #a7af97;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px #dbdadd;
+    color: #4e5145;
+    height: 41px;
+    width: 360px;
+    position: absolute;
+    left: 275px;
+    top: 10px;
+}
+
+#current_artist {
+    color: #4e5145;
+    font-size: 10px;
+    left: 50px;
+    position: absolute;
+    text-align: center;
+    top: 4px;
+    width: 260px;
+}
+
+#current_title {
+    color: #4e5145;
+    font-size: 10px;
+    left: 50px;
+    position: absolute;
+    text-align: center;
+    top: 17px;
+    width: 260px;
+}
+
+#progress_time {
+    color: #4e5145;
+    font-size: 10px;
+    position: absolute;
+    left: 25px;
+    text-align: right;
+    top: 28px;
+    width: 40px;
+}
+
+#remain_time {
+    color: #4e5145;
+    font-size: 10px;
+    position: absolute;
+    left: 292px;
+    text-align: left;
+    top: 28px;
+    width: 40px;
+}
+
+#progress_bar {
+    background: url(images/progress.png) no-repeat;
+    height: 7px;
+    left: 70px;
+    position: absolute;
+    top: 30px;
+    width: 220px;
+}
+
+#progress_on {
+    background: url(images/progress-on-bg.png) repeat-x;
+    height: 7px;
+    position: relative;
+    margin: 0 0 0 3px;
+    width: 30px;
+}
+
+#progress_button {
+    position: absolute;
+    right: -3px;
+    top: 0;
+}
+
+#search_field {
+    background: url(images/searchfield.png) no-repeat;
+    height: 22px;
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 151px;
+}
+
+#search_field input {
+    background: transparent;
+    border: none;
+    font-size: 13px;
+    margin: 2px 0 0 22px;
+    width: 120px;
+}
+
+#tracks {
+    float: left;
+    overflow: hidden;
+    width: 650px;
+}
+
+#cover_flow {
+    height: 250px;
+    overflow: hidden;
+}
+
+#track_list {
+    background: #ffffff;
+    width: 100%;
+}
+
+#track_list .selected {
+    background: #4896e0;
+    color: #ffffff;
+}
+
+#track_list .selected td {
+    color: #ffffff;
+}
+
+#status_bar {
+    background: url(images/status-bar-bg.png);
+    background: linear-gradient(to top, #929293, #c8cbcb);
+    border-top: 1px solid #727579;
+    height: 23px;
+    width: 100%;
+}
+</style>
 </head>
 <body>
+<div id="itunes_player">
+    <div id="control_panel">
+        <img id="prev_button" src="images/prev.png"/>
+        <img id="play_button" src="images/play_button.png"/>
+        <img id="next_button" src="images/next.png"/>
+
+        <div id="volume_bar">
+            <div id="volume_on">
+                <img id="volume_button" src="images/volume-button.png"/>
+            </div>
+        </div>
+
+        <div id="player_info">
+            <div id="current_artist">Eminem</div>
+            <div id="current_title">The Monster (feat Rihanna)</div>
+            <div id="progress_time">1:10</div>
+            <div id="progress_bar">
+                <div id="progress_on">
+                    <img id="progress_button" src="images/progress-button.png"/>
+                </div>
+            </div>
+            <div id="remain_time">-2:40</div>
+        </div>
+
+        <div id="search_field">
+            <input type="search" name="q" placeholder="Поиск">
+        </div>
+
+    </div>
+    <div id="side_panel">
+        <h2>Жанры</h2>
+        <ul>
+            <li class="selected">Все</li>
+            <li>Rap</li>
+            <li>Hip-Hop</li>
+            <li>R'n'B</li>
+        </ul>
+    </div>
+    <div id="tracks">
+        <div id="cover_flow">
+            <img height="250" width="650" src="images/cover-flow.png"/>
+        </div>
+        <table id="track_list">
+            <thead>
+            <tr>
+                <td><input type="checkbox" name="selectAll"/></td>
+                <td>Название</td>
+                <td>Длительность</td>
+                <td>Артист</td>
+                <td>Жанр</td>
+                <td>Рейтинг</td>
+                <td>Цена</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>The Monster (feat. Rihanna)</td>
+                <td>4:38</td>
+                <td>Eminem</td>
+                <td>Hip-Hop</td>
+                <td>5</td>
+                <td>1000 руб</td>
+            </tr>
+            <tr class="odd">
+                <td><input type="checkbox"></td>
+                <td>Rap God</td>
+                <td>5:17</td>
+                <td>Eminem</td>
+                <td>Rap</td>
+                <td>5</td>
+                <td>800 руб</td>
+            </tr>
+            <tr class="selected">
+                <td><input type="checkbox"></td>
+                <td>Rap Game</td>
+                <td>5:02</td>
+                <td>Dr. Dre</td>
+                <td>Rap</td>
+                <td>5</td>
+                <td>900 руб</td>
+            </tr>
+            <tr class="odd">
+                <td><input type="checkbox"></td>
+                <td>Drunk in Love (feat. JAY Z)</td>
+                <td>5:30</td>
+                <td>Beyoncé</td>
+                <td>R'n'B</td>
+                <td>4</td>
+                <td>800 руб</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="clear"></div>
+    <div id="status_bar">
+
+    </div>
+</div>
 
 </body>
 </html>
