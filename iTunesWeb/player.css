@@ -117,11 +117,12 @@ thead td {
 }
 
 #side_panel li {
+    cursor: pointer;
     height: 16px;
     padding: 3px 30px 0;
 }
 
-#side_panel li.selected {
+#side_panel li.selectedStyle {
     background: linear-gradient(to top, #8398b6, #b0bed6);
     border-top: 1px solid #a2b0ca;
     color: #ffffff;
@@ -276,17 +277,17 @@ thead td {
     overflow: hidden;
 }
 
-#track_list {
+#track_table {
     background: #ffffff;
     width: 100%;
 }
 
-#track_list .selected {
+#track_table .selected {
     background: #4896e0;
     color: #ffffff;
 }
 
-#track_list .selected td {
+#track_table .selected td {
     color: #ffffff;
 }
 

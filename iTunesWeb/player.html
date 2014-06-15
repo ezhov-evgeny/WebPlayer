@@ -3,6 +3,7 @@
 <head lang="en">
 <meta charset="UTF-8">
 <script src="js/player.js" type="application/javascript"></script>
+<script src="js/jquery-1.4.4.min.js" type="application/javascript"></script>
 <link rel="stylesheet" href="player.css" type="text/css"/>
 <title>iTunes Web</title>
 </head>
@@ -39,17 +40,17 @@
     <div id="side_panel">
         <h2>Жанры</h2>
         <ul>
-            <li class="selected">Все</li>
-            <li>Rap</li>
-            <li>Hip-Hop</li>
-            <li>R'n'B</li>
+            <li id="allStyles" class="selectedStyle" onclick="changeStyle(this)">Все</li>
+            <li id="rap">Rap</li>
+            <li id="hipHop">Hip-Hop</li>
+            <li id="rnb">R'n'B</li>
         </ul>
     </div>
     <div id="tracks">
         <div id="cover_flow">
             <img height="250" width="650" src="images/cover-flow.png"/>
         </div>
-        <table id="track_list">
+        <table id="track_table">
             <thead>
             <tr>
                 <td><input type="checkbox" name="selectAll"/></td>
@@ -61,7 +62,7 @@
                 <td>Цена</td>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="track_list">
             <tr>
                 <td><input type="checkbox"></td>
                 <td>The Monster (feat. Rihanna)</td>
