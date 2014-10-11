@@ -1,4 +1,5 @@
-<div id="tmpPlayer" style="display: none !important;">
+<!--<div id="tmpPlayer" style="display: none !important;">-->
+<div id="player">
 	<div class="player_tabs">
 		<a onclick="showTab(1);return false;" class="player_tab current" id="player_tab1" href="#">Минуса на продажу</a>
         <a onclick="showTab(2);return false;" id="player_tab2" href="#" class="player_tab">Минуса бесплатно</a>
@@ -183,8 +184,7 @@
             if($tabNum == 1)
                 echo '	<td class="p'.$tabNum.'_col_6" customkey="'.$elTrack['price'].'"><span>'.$elTrack['price'].' руб</span><div id="tab'.$tabNum.'_buy_'.$elTrack['id'].'" class="checkbox" customkey="'.$elTrack['price'].'" onclick="addToCart(\''.$elTrack['id'].'\', \''.$elTrack['price'].'\');"></div></td>';
             else
-                echo '	<td class="p'.$tabNum.'_col_6"> </td>';
-			echo '	<td class="p'.$tabNum.'_col_7"><span><a href="/player/download.php?id='.$elTrack["id"].'" title="скачать" target="_blank" onclick="chkbx = true;">скачать</a></span></div></td>';
+                echo '	<td class="p'.$tabNum.'_col_6"><span><a href="/player/download.php?id='.$elTrack["id"].'" title="скачать" target="_blank" onclick="chkbx = true;">скачать</a></span></div></td>';
 			echo '</tr>';			
 		}
 	?>
