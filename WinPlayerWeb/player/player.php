@@ -52,7 +52,7 @@
 			</div>
 
             <div id="player_buy_now">
-                <a href="http://vipbeat.ru/contact.html" onclick="return urlGen();" title="Купить"></a>
+                <a href="http://vipbeat.ru/kontakty/" onclick="return urlGen();" title="Купить"></a>
             </div>
 		</div>
 	</div>

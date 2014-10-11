@@ -3,22 +3,45 @@ function playerReplace() {
     $('div#player_here').html(tmphtml);
     $('div#tmpPlayer').html('');
 }
+function post(path, params, method) {
+    method = method || "post"; // Set method to post by default if not specified.
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+
+            form.appendChild(hiddenField);
+        }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
 function urlGen() {
     if (!curSel || curSel < 1) {
         alert('Ничего не выбрано');
         return false;
     }
     var link = $('#player_buy_now').children('a').attr('href');
-    link += 'cnt,' + curSel + '/';
+    var message = 'Total count: ' + curSel + '\n';
     for (var i = 0; i <= cart.length - 1; i++) {
-        link += 'id' + i + ',' + cart[i][0] + '/';
-        link += 't' + i + ',' + cart[i][1] + '/';
-        link += 'a' + i + ',' + cart[i][2] + '/';
-        link += 'p' + i + ',' + cart[i][3] + '/';
+        message += 'Track id: ' + cart[i][0] + ', ';
+        message += 'Title: ' + cart[i][1] + ', ';
+        message += 'Artist: ' + cart[i][2] + ', ';
+        message += 'price: ' + cart[i][3] + '\n';
     }
-    link += 'p,' + curSum + '/';
-    $('#player_buy_now').children('a').attr('href', link);
-    return true;
+    message += 'Total price: ' + curSum + '.';
+    post(link, {'message_text': message});
+    return false;
 }
 function showTab(tabNumber) {
     $('.player_tab.current').removeClass(' current');
